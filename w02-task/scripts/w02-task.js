@@ -25,9 +25,11 @@ const newFavoriteFood = 'NewFood';
 favFoods.push(newFavoriteFood);
 
 // Remove the first element
-favFoods.shift();
-foodElement.innerHTML = favFoods.join(', '); // Use comma for a cleaner display
+const removedFirstFood = favFoods.shift();
+foodElement.innerHTML = `Removed First Element: ${removedFirstFood}<br>`;
+foodElement.innerHTML += `Remaining Foods: ${favFoods.join(', ')}`;
 
 // Remove the last element
-favFoods.pop();
-foodElement.innerHTML += `<br>${favFoods.join(', ')}`; // Add <br> for the final join
+const removedLastFood = favFoods.pop();
+foodElement.innerHTML += `<br><br>Removed Last Element: ${removedLastFood}<br>`;
+foodElement.innerHTML += `Remaining Foods: ${favFoods.join(', ')}`;
