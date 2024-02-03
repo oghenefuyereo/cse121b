@@ -21,7 +21,11 @@ imageElement.setAttribute('alt', `Profile image of ${fullName}`);
 
 /* Step 5 - Array */
 const favFoods = ['Rice', 'Jollof', 'Beans', 'Akara', 'Eba', 'Fried Rice'];
-const newFavoriteFood = 'NewFood';
+
+// Declare and instantiate a new food variable
+const newFavoriteFood = 'NewFavoriteFood';
+
+// Add the new food variable to the favorite food array
 favFoods.push(newFavoriteFood);
 
 // Remove the first element
