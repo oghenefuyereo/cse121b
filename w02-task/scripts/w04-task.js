@@ -26,8 +26,8 @@ myProfile.placesLived.push(
         length: '1 year'
     },
     {
-        place: 'New York, NY',
-        length: '2 years'
+        place: 'Welland, ON',
+        length: '1 years'
     }
 );
 
