@@ -7,12 +7,12 @@ let myProfile = {
     photo: "images/oghenefuyere.jpg",
     favoriteFoods: [
         'Rice',
-        'Tikka Masala',
-        'Prioshki',
-        'Shrimp',
-        'Banana Cream Pie'
+        'Eba',
+        'Yam',
+        'Ice Cream',
+        'Egusi Soup'
     ],
-    hobbies: ['Reading', 'Playing guitar', 'Hiking'],
+    hobbies: ['Reading', 'Playing guitar', 'Coding'],
     placesLived: []
 };
 
