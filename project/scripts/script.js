@@ -1,3 +1,30 @@
+function getWeather() {
+    const locationInput = document.getElementById('locationInput').value;
+    const apiKey = '840506ed917a4d36b2344516241802'; // Your WeatherAPI API key
+
+    // Check if location is provided
+    if (locationInput.trim() === '') {
+        alert('Please enter a location');
+        return;
+    }
+
+    // Fetch weather data from API
+    fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${locationInput}&aqi=no`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch weather data');
+            }
+            return response.json();
+        })
+        .then(data => {
+            displayWeather(data);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Failed to fetch weather data. Please try again later.');
+        });
+}
+
 function displayWeather(data) {
     const weatherDisplay = document.getElementById('weatherDisplay');
     const { location, current } = data;
@@ -28,77 +55,4 @@ function displayWeather(data) {
         <p>UV Index: ${current.uv}</p>
     `;
     weatherDisplay.appendChild(detailsElement);
-
-    // Display air quality data if available
-    if (current.air_quality) {
-        const airQualityElement = document.createElement('div');
-        airQualityElement.innerHTML = `
-            <h3>Air Quality</h3>
-            <p>CO: ${current.air_quality.co}</p>
-            <p>NO2: ${current.air_quality.no2}</p>
-            <p>O3: ${current.air_quality.o3}</p>
-            <p>SO2: ${current.air_quality.so2}</p>
-            <p>PM2.5: ${current.air_quality.pm2_5}</p>
-            <p>PM10: ${current.air_quality.pm10}</p>
-            <p>US EPA Index: ${current.air_quality['us-epa-index']}</p>
-            <p>GB DEFRA Index: ${current.air_quality['gb-defra-index']}</p>
-        `;
-        weatherDisplay.appendChild(airQualityElement);
-    }
 }
-
-// Sample data from the WeatherAPI response
-const sampleData = {
-    "location": {
-        "name": "London",
-        "region": "City of London, Greater London",
-        "country": "United Kingdom",
-        "lat": 51.52,
-        "lon": -0.11,
-        "tz_id": "Europe/London",
-        "localtime_epoch": 1708229648,
-        "localtime": "2024-02-18 4:14"
-    },
-    "current": {
-        "last_updated_epoch": 1708228800,
-        "last_updated": "2024-02-18 04:00",
-        "temp_c": 11.0,
-        "temp_f": 51.8,
-        "is_day": 0,
-        "condition": {
-            "text": "Light rain",
-            "icon": "//cdn.weatherapi.com/weather/64x64/night/296.png",
-            "code": 1183
-        },
-        "wind_mph": 9.4,
-        "wind_kph": 15.1,
-        "wind_degree": 210,
-        "wind_dir": "SSW",
-        "pressure_mb": 1024.0,
-        "pressure_in": 30.24,
-        "precip_mm": 1.28,
-        "precip_in": 0.05,
-        "humidity": 94,
-        "cloud": 100,
-        "feelslike_c": 9.0,
-        "feelslike_f": 48.2,
-        "vis_km": 8.0,
-        "vis_miles": 4.0,
-        "uv": 1.0,
-        "gust_mph": 15.0,
-        "gust_kph": 24.1,
-        "air_quality": {
-            "co": 237.0,
-            "no2": 8.7,
-            "o3": 65.1,
-            "so2": 3.7,
-            "pm2_5": 2.7,
-            "pm10": 3.1,
-            "us-epa-index": 1,
-            "gb-defra-index": 1
-        }
-    }
-};
-
-// Display sample data
-displayWeather(sampleData);
