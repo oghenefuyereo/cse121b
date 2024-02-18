@@ -5,20 +5,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Forecast</title>
+    <!-- Link to external CSS file -->
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 
 <body>
+    <!-- Container for the weather application -->
     <div class="container">
+        <!-- Heading for the application -->
         <h1>Weather Forecast Application</h1>
+        <!-- Input form for location -->
         <div>
             <label for="locationInput">Enter Location:</label>
             <input type="text" id="locationInput" placeholder="Enter location...">
             <button onclick="getWeather()">Get Weather</button>
         </div>
+        <!-- Container to display weather information -->
         <div id="weatherDisplay"></div>
     </div>
 
+    <!-- Include JavaScript file for weather functionality -->
     <script src="scripts/script.js"></script>
 
 </body>

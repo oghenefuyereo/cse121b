@@ -1,71 +1,111 @@
 /* Global styles */
+
+/* Apply default font family and background color to the entire body */
 body {
     font-family: Arial, sans-serif;
+    /* Use Arial font or sans-serif as fallback */
     background-color: #f0f0f0;
+    /* Light gray background color */
     margin: 0;
+    /* Remove default margin */
     padding: 0;
+    /* Remove default padding */
 }
 
+/* Container styles */
 .container {
     max-width: 600px;
+    /* Maximum width for the container */
     margin: 20px auto;
+    /* Center the container horizontally with 20px top and bottom margin */
     padding: 20px;
+    /* Add padding to the container */
     background-color: #fff;
+    /* White background color */
     border-radius: 8px;
+    /* Rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add shadow effect */
 }
 
+/* Heading styles */
 h1 {
     margin-top: 0;
+    /* Remove top margin */
     color: #333;
+    /* Dark gray color */
 }
 
 /* Form styles */
 form {
     margin-bottom: 20px;
+    /* Add bottom margin */
 }
 
 label {
     font-weight: bold;
+    /* Bold font weight for labels */
 }
 
 input[type="text"] {
     width: 60%;
+    /* Set input width to 60% */
     padding: 8px;
+    /* Add padding */
     margin-right: 10px;
+    /* Add right margin */
     border: 1px solid #ccc;
+    /* Add border with light gray color */
     border-radius: 4px;
+    /* Rounded corners */
     box-sizing: border-box;
+    /* Include padding and border in the input's total width */
 }
 
 button {
     padding: 8px 16px;
+    /* Add padding */
     background-color: #007bff;
+    /* Blue background color */
     color: #fff;
+    /* White text color */
     border: none;
+    /* Remove border */
     border-radius: 4px;
+    /* Rounded corners */
     cursor: pointer;
+    /* Change cursor to pointer on hover */
     transition: background-color 0.3s;
+    /* Smooth transition for background color change */
 }
 
 button:hover {
     background-color: #0056b3;
+    /* Darker blue background color on hover */
 }
 
 /* Weather display styles */
 #weatherDisplay {
     background-color: #f9f9f9;
+    /* Light gray background color */
     padding: 20px;
+    /* Add padding */
     border-radius: 4px;
+    /* Rounded corners */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add shadow effect */
     margin-top: 20px;
+    /* Add top margin */
 }
 
 #weatherDisplay h2 {
     margin-top: 0;
+    /* Remove top margin */
     color: #333;
+    /* Dark gray color */
 }
 
 #weatherDisplay p {
     margin: 10px 0;
+    /* Add margin */
 }
