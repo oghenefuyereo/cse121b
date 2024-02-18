@@ -1,6 +1,6 @@
 function getWeather() {
     const locationInput = document.getElementById('locationInput').value;
-    const apiKey = 'a12e36b4838d4b018b755642241802'; // Your WeatherAPI API key
+    const apiKey = 'bb8735b4cda34f059d661716241802'; // Your WeatherAPI API key
 
     // Check if location is provided
     if (locationInput.trim() === '') {
