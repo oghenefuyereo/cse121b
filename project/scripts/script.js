@@ -1,6 +1,6 @@
 function getWeather() {
     const locationInput = document.getElementById('locationInput').value;
-    const apiKey = 'bb8735b4cda34f059d661716241802'; // Your WeatherAPI API key
+    const apiKey = '8c69e35966006ee4625d59e5f1bed11f';
 
     // Check if location is provided
     if (locationInput.trim() === '') {
@@ -9,7 +9,7 @@ function getWeather() {
     }
 
     // Fetch weather data from API
-    fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${locationInput}&aqi=no`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${locationInput}&appid=${apiKey}&units=metric`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Failed to fetch weather data');
@@ -27,32 +27,26 @@ function getWeather() {
 
 function displayWeather(data) {
     const weatherDisplay = document.getElementById('weatherDisplay');
-    const { location, current } = data;
 
     // Clear previous weather data
     weatherDisplay.innerHTML = '';
 
     // Display location name
     const locationElement = document.createElement('h2');
-    locationElement.textContent = `Weather in ${location.name}, ${location.region}, ${location.country}`;
+    locationElement.textContent = `Weather in ${data.name}, ${data.sys.country}`;
     weatherDisplay.appendChild(locationElement);
 
     // Display weather description and temperature
     const weatherDescElement = document.createElement('p');
-    weatherDescElement.textContent = `Condition: ${current.condition.text}, Temperature: ${current.temp_c}°C`;
+    weatherDescElement.textContent = `Condition: ${data.weather[0].description}, Temperature: ${data.main.temp}°C`;
     weatherDisplay.appendChild(weatherDescElement);
 
     // Display additional weather details
     const detailsElement = document.createElement('div');
     detailsElement.innerHTML = `
-        <p>Wind: ${current.wind_kph} km/h ${current.wind_dir}</p>
-        <p>Pressure: ${current.pressure_mb} mb</p>
-        <p>Precipitation: ${current.precip_mm} mm</p>
-        <p>Humidity: ${current.humidity}%</p>
-        <p>Cloud Cover: ${current.cloud}%</p>
-        <p>Feels Like: ${current.feelslike_c}°C</p>
-        <p>Visibility: ${current.vis_km} km</p>
-        <p>UV Index: ${current.uv}</p>
+        <p>Wind Speed: ${data.wind.speed} m/s</p>
+        <p>Pressure: ${data.main.pressure} hPa</p>
+        <p>Humidity: ${data.main.humidity}%</p>
     `;
     weatherDisplay.appendChild(detailsElement);
 }
